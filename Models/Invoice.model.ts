@@ -6,9 +6,9 @@ export default class InvoiceModel {
         return Invoices;
     }
 
-    public static getById(id): Invoices[] {
+    public static getById(id): IInvoice[] {
         const invoice = Invoices.filter(a => a.item_id === id);
-        return invoice;
+        return invoice as IInvoice[];
     }
 
     public static getAllWithItem(itemId):IInvoice[] {
@@ -18,7 +18,7 @@ export default class InvoiceModel {
             invoice.item_id.indexOf(itemId) > -1
         );
 
-        return output as IInvoice[]
+        return output as IInvoice[];
     }
 
     public static getAllClosedWithItem(itemId):IInvoice[] {
